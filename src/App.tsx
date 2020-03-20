@@ -1,13 +1,7 @@
 import * as React from 'react'
 import styled from "styled-components";
 import {useEffect, useState} from "react";
-
-interface IRecipe {
-    ingredients: string[],
-    title: string,
-    instructions: string,
-    id: string
-}
+import {IRecipe, recipeItem} from "./RecipeItem";
 
 export const App: React.FC = () => {
 
@@ -38,17 +32,8 @@ export const App: React.FC = () => {
     )
 };
 
-const recipeItem = (recipe: IRecipe) => {
-    const {id, title, ingredients, instructions} = recipe;
-    return (
-        <div key={id}>
-            <h1>{title}</h1>
-            <p>{ingredients}</p>
-            <p>{instructions}</p>
-        </div>
-    )
-};
-
 const AppWrapper = styled.div`
   display: flex;
+  width: 100%;
+  justify-content: center;
 `;
