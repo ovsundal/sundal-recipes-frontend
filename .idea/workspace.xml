@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f1d9f8a-abba-4be0-b576-60270209662d" name="Default Changelist" comment="">
+    <list default="true" id="7f1d9f8a-abba-4be0-b576-60270209662d" name="Default Changelist" comment="add styling">
+      <change afterPath="$PROJECT_DIR$/src/Auth.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RecipeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/RecipeItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +15,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -69,7 +70,7 @@
       <updated>1583877411714</updated>
       <workItem from="1583877413128" duration="288000" />
       <workItem from="1583961557605" duration="2667000" />
-      <workItem from="1584730390704" duration="5053000" />
+      <workItem from="1584730390704" duration="6768000" />
     </task>
     <task id="LOCAL−00001" summary="delete starter files and add libraries">
       <created>1583962794216</created>
@@ -101,7 +102,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1584746262602</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="add styling">
+      <created>1584746360722</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1584746360722</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,13 +120,14 @@
     <MESSAGE value="add package-lock.json" />
     <MESSAGE value="add api call for getting recipes and create recipe boilerplate" />
     <MESSAGE value="add RecipeItem.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="add RecipeItem.tsx" />
+    <MESSAGE value="add styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="add styling" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2" timestamp="1584746262290">
+    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2" timestamp="1584747944818">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584746262290" />
+    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584747944818" />
     <state x="767" y="414" key="Github.ShareDialog" timestamp="1583877511796">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -140,17 +148,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1583964226151" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1583962261164">
+    <state x="461" y="163" key="SettingsEditor" timestamp="1584746539333">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1583962261164" />
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584746539333" />
     <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1583963119469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1583963119469" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583962252946">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584746525561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1583962252946" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584746525561" />
   </component>
 </project>

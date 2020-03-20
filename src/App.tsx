@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import {IRecipe, recipeItem} from "./RecipeItem";
+import {Auth} from "./Auth";
 
 export const App: React.FC = () => {
 
@@ -29,6 +30,8 @@ export const App: React.FC = () => {
         <AppWrapper>
             List of recipes:
             {recipeData.map(recipeItem)}
+
+            <Auth />
         </AppWrapper>
     )
 };
