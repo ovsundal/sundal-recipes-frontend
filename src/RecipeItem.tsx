@@ -22,4 +22,5 @@ export const recipeItem = (recipe: IRecipe) => {
 const RecipeWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
 `;

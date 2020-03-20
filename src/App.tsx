@@ -27,6 +27,7 @@ export const App: React.FC = () => {
 
     return(
         <AppWrapper>
+            List of recipes:
             {recipeData.map(recipeItem)}
         </AppWrapper>
     )
@@ -35,5 +36,6 @@ export const App: React.FC = () => {
 const AppWrapper = styled.div`
   display: flex;
   width: 100%;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;

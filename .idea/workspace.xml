@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f1d9f8a-abba-4be0-b576-60270209662d" name="Default Changelist" comment="add package-lock.json">
+    <list default="true" id="7f1d9f8a-abba-4be0-b576-60270209662d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RecipeItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/RecipeItem.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,7 @@
       <updated>1583877411714</updated>
       <workItem from="1583877413128" duration="288000" />
       <workItem from="1583961557605" duration="2667000" />
-      <workItem from="1584730390704" duration="3824000" />
+      <workItem from="1584730390704" duration="5053000" />
     </task>
     <task id="LOCAL−00001" summary="delete starter files and add libraries">
       <created>1583962794216</created>
@@ -88,7 +89,19 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1583963141177</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="add api call for getting recipes and create recipe boilerplate">
+      <created>1584745158035</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1584745158035</updated>
+    </task>
+    <task id="LOCAL−00005" summary="add RecipeItem.tsx">
+      <created>1584746262602</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1584746262602</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,13 +111,15 @@
     <MESSAGE value="delete starter files and add libraries" />
     <MESSAGE value="add libraries and update index.html" />
     <MESSAGE value="add package-lock.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="add package-lock.json" />
+    <MESSAGE value="add api call for getting recipes and create recipe boilerplate" />
+    <MESSAGE value="add RecipeItem.tsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="add RecipeItem.tsx" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="230" y="92" width="1508" height="809" key="CommitChangelistDialog2" timestamp="1584745107280">
+    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2" timestamp="1584746262290">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="230" y="92" width="1508" height="809" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584745107280" />
+    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584746262290" />
     <state x="767" y="414" key="Github.ShareDialog" timestamp="1583877511796">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
