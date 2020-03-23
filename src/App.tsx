@@ -2,7 +2,6 @@ import * as React from 'react'
 import styled from "styled-components";
 import {useEffect, useState} from "react";
 import {IRecipe, recipeItem} from "./RecipeItem";
-import {Auth} from "./Auth";
 
 export const App: React.FC = () => {
 
@@ -30,8 +29,9 @@ export const App: React.FC = () => {
         <AppWrapper>
             List of recipes:
             {recipeData.map(recipeItem)}
-
-            <Auth />
+            <FloatingAddRecipeButton href={'#'} title={'Add Recipe'}>
+                <PlusIcon className="fa fa-plus my-float" />
+            </FloatingAddRecipeButton>
         </AppWrapper>
     )
 };
@@ -41,4 +41,25 @@ const AppWrapper = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
+  
+  font-family:Verdana, Geneva, sans-serif;
+  font-size:18px;
+  background-color:#CCC;
+`;
+
+const FloatingAddRecipeButton = styled.a`
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#0C9;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+`;
+
+const PlusIcon = styled.i`
+  margin-top:22px;
 `;
