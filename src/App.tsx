@@ -1,7 +1,8 @@
 import * as React from 'react'
 import styled from "styled-components";
 import {useEffect, useState} from "react";
-import {IRecipe, recipeItem} from "./RecipeItem";
+import {IRecipe, recipeItem} from "./recipes/RecipeItem";
+import {RecipeList} from "./recipes/RecipeList";
 
 export const App: React.FC = () => {
 
@@ -27,9 +28,9 @@ export const App: React.FC = () => {
 
     return(
         <AppWrapper>
-            List of recipes:
-            {recipeData.map(recipeItem)}
-            <FloatingAddRecipeButton href={'#'} title={'Add Recipe'}>
+            <RecipeList data={recipeData} />
+
+            <FloatingAddRecipeButton href={'/add-recipe'} title={'Add Recipe'}>
                 <PlusIcon className="fa fa-plus my-float" />
             </FloatingAddRecipeButton>
         </AppWrapper>
