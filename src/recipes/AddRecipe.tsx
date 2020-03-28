@@ -21,8 +21,35 @@ export const AddRecipe: React.FC<IAddRecipeProps> = ({}) => {
     }
   };
 
+  const submitForm = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+        const payloadJson = {
+            title,
+            ingredients,
+            instructions
+        };
+
+      const response = await fetch(
+        "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
+        // "http://localhost:5000/api/recipes/addRecipe",
+        {
+          method: "POST",
+          body: JSON.stringify(payloadJson),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+      );
+      console.log(response);
+    } catch (e) {
+      console.log("failed to add recipe: ", e.toString());
+    }
+  };
+
   return (
-    <AddRecipeWrapper>
+    <AddRecipeWrapper onSubmit={submitForm}>
       <h1>Add Recipe</h1>
       <label>
         Title
@@ -51,6 +78,7 @@ export const AddRecipe: React.FC<IAddRecipeProps> = ({}) => {
           onChange={updateFieldValue}
         />
       </label>
+      <button type={"submit"}>Add Recipe</button>
     </AddRecipeWrapper>
   );
 };

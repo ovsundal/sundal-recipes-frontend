@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7f1d9f8a-abba-4be0-b576-60270209662d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/recipes/AddRecipe.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/recipes/AddRecipe.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +41,12 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\osund\WebstormProjects\react-typescript-frontend-boilerplate\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
-    <property name="ts.external.directory.path" value="C:\Users\osund\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\193.6015.40\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Users\osund\WebstormProjects\sundal-recipes-frontend\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\osund\WebstormProjects\sundal-recipes-frontend\src\recipes" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
@@ -72,7 +77,9 @@
       <workItem from="1583961557605" duration="2667000" />
       <workItem from="1584730390704" duration="6841000" />
       <workItem from="1584826134354" duration="2937000" />
-      <workItem from="1584992708277" duration="321000" />
+      <workItem from="1584992708277" duration="7996000" />
+      <workItem from="1585080563477" duration="3926000" />
+      <workItem from="1585427023572" duration="4151000" />
     </task>
     <task id="LOCAL−00001" summary="delete starter files and add libraries">
       <created>1583962794216</created>
@@ -116,7 +123,79 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1584748076473</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="change website title and add libraries">
+      <created>1584993256747</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1584993256747</updated>
+    </task>
+    <task id="LOCAL−00009" summary="add font awesome">
+      <created>1584994955156</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1584994955156</updated>
+    </task>
+    <task id="LOCAL−00010" summary="clear readme boilerplate">
+      <created>1584994964822</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1584994964822</updated>
+    </task>
+    <task id="LOCAL−00011" summary="update gitignore">
+      <created>1584994985566</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1584994985566</updated>
+    </task>
+    <task id="LOCAL−00012" summary="remove unused file">
+      <created>1584995009573</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1584995009573</updated>
+    </task>
+    <task id="LOCAL−00013" summary="add floating action button for adding recipes">
+      <created>1584995026582</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1584995026582</updated>
+    </task>
+    <task id="LOCAL−00014" summary="add css reference">
+      <created>1584995063475</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1584995063475</updated>
+    </task>
+    <task id="LOCAL−00015" summary="refactor RecipeList into own component">
+      <created>1584995964595</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1584995964595</updated>
+    </task>
+    <task id="LOCAL−00016" summary="move fab to recipelist">
+      <created>1584996733118</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1584996733118</updated>
+    </task>
+    <task id="LOCAL−00017" summary="add routing library">
+      <created>1584996742494</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1584996742494</updated>
+    </task>
+    <task id="LOCAL−00018" summary="add app routes and AddRecipe component boilerplate">
+      <created>1584996795716</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1584996795716</updated>
+    </task>
+    <task id="LOCAL−00019" summary="add states for title, ingredients and instructions">
+      <created>1584997331545</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1584997331545</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,13 +209,29 @@
     <MESSAGE value="add RecipeItem.tsx" />
     <MESSAGE value="add styling" />
     <MESSAGE value="add auth component skeleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="add auth component skeleton" />
+    <MESSAGE value="change website title and add libraries" />
+    <MESSAGE value="add font awesome" />
+    <MESSAGE value="clear readme boilerplate" />
+    <MESSAGE value="update gitignore" />
+    <MESSAGE value="remove unused file" />
+    <MESSAGE value="add floating action button for adding recipes" />
+    <MESSAGE value="add css reference" />
+    <MESSAGE value="refactor RecipeList into own component" />
+    <MESSAGE value="move fab to recipelist" />
+    <MESSAGE value="add routing library" />
+    <MESSAGE value="add app routes and AddRecipe component boilerplate" />
+    <MESSAGE value="add states for title, ingredients and instructions" />
+    <option name="LAST_COMMIT_MESSAGE" value="add states for title, ingredients and instructions" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2" timestamp="1584992416948">
+    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2" timestamp="1584997331232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584992416948" />
+    <state x="230" y="92" width="1508" height="926" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584997331232" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1585086168556">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585086168556" />
     <state x="767" y="414" key="Github.ShareDialog" timestamp="1583877511796">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -157,21 +252,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584992941767" />
+    <state x="723" y="232" key="RollbackChangesDialog" timestamp="1584996369123">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="723" y="232" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584996369123" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1584746539333">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584746539333" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1584748078557">
+    <state x="831" y="471" key="VCS.ChangelistChooser" timestamp="1584996768898">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584748078557" />
-    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1584828044534">
+    <state x="831" y="471" key="VCS.ChangelistChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584996768898" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1584997333075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584828044534" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584746525561">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584997333075" />
+    <state x="76" y="50" width="1710" height="910" key="find.popup" timestamp="1585084154796">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584746525561" />
+    <state x="76" y="50" width="1710" height="910" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1585084154796" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584997156445">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584997156445" />
   </component>
 </project>
