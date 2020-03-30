@@ -27,32 +27,30 @@ export const AddRecipe: React.FC = () => {
     e.preventDefault();
 
     try {
-      const payloadJson = {
+      const payload = {
         title,
         ingredients,
         instructions
       };
 
-      const response = await fetch(
+      await fetch(
         "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
         // "http://localhost:5000/api/recipes/addRecipe",
         {
           method: "POST",
-          body: JSON.stringify(payloadJson),
+          body: JSON.stringify(payload),
           headers: {
             "Content-Type": "application/json"
           }
         }
       );
-
-      console.log(response);
     } catch (e) {
       console.log("failed to add recipe: ", e.toString());
     }
   };
 
   const addIngredientsInputField = (e: React.FormEvent<HTMLInputElement>) => {
-    const { value, id } = e.currentTarget;
+    const { id } = e.currentTarget;
 
     const inputFieldId = getIngredientInputFieldId(id);
 
