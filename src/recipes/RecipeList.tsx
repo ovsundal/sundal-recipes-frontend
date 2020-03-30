@@ -1,51 +1,46 @@
-import * as React from 'react'
-import {IRecipe, recipeItem} from "./RecipeItem";
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { IRecipe, recipeItem } from "./RecipeItem";
 import styled from "styled-components";
-import {BrowserRouter, Link} from "react-router-dom";
-import {useState} from "react";
-import {useEffect} from "react";
+import { Link } from "react-router-dom";
 
-interface IRecipeListProps {
-}
+interface IRecipeListProps {}
 
 export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
+  const [recipeData, setRecipeData] = useState([] as IRecipe[]);
 
-    const [recipeData, setRecipeData] = useState([] as IRecipe[]);
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        const response = await fetch(
+          "https://sundal-recipes.herokuapp.com/api/recipes/getRecipes"
+        );
 
-    useEffect(() => {
-        const fetchRecipes = async () => {
-            try {
-                const response = await fetch(
-                    "https://sundal-recipes.herokuapp.com/api/recipes/getRecipes"
-                );
+        const { recipes }: { recipes: IRecipe[] } = await response.json();
 
-                const { recipes }: { recipes: IRecipe[] } = await response.json();
+        setRecipeData(recipes);
+      } catch (e) {
+        console.log("Error, could not get recipes", e);
+      }
+    };
 
-                setRecipeData(recipes);
-            } catch (e) {
-                console.log("Error, could not get recipes", e);
-            }
-        };
+    fetchRecipes();
+  }, []);
 
-        fetchRecipes();
-    }, []);
+  return (
+    <RecipeListWrapper>
+      {recipeData.map(recipeItem)}
 
-    return(
-        <RecipeListWrapper>
-            {recipeData.map(recipeItem)}
-
-            <Link to={"/add-recipe"}>
-                <FloatingAddRecipeButton title={"Add Recipe"}>
-                    <PlusIcon className="fa fa-plus my-float" />
-                </FloatingAddRecipeButton>
-            </Link>
-        </RecipeListWrapper>
-    )
+      <Link to={"/add-recipe"}>
+        <FloatingAddRecipeButton title={"Add Recipe"}>
+          <PlusIcon className="fa fa-plus my-float" />
+        </FloatingAddRecipeButton>
+      </Link>
+    </RecipeListWrapper>
+  );
 };
 
-const RecipeListWrapper = styled.div`
-
-`;
+const RecipeListWrapper = styled.div``;
 
 const FloatingAddRecipeButton = styled.a`
   position: fixed;
