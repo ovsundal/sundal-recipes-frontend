@@ -26,10 +26,12 @@ export const AddRecipe: React.FC = () => {
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const filteredEmptyIngredients = ingredients.filter(item => !!item.trim());
+
     try {
       const payload = {
         title,
-        ingredients,
+        ingredients: filteredEmptyIngredients,
         instructions
       };
 
