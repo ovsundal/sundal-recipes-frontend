@@ -1,39 +1,20 @@
 import * as React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 
 export const AddRecipe: React.FC = () => {
-  const [title, setTitle] = useState("");
-  const [ingredients, setIngredients] = useState([""] as string[]);
-  const [instructions, setInstructions] = useState("");
-
-  const updateFieldValue = (e: React.FormEvent<HTMLInputElement>) => {
-    const { value, id } = e.currentTarget;
-
-    if (id === "recipe-title") {
-      setTitle(value);
-    } else if (id.includes("recipe-ingredients")) {
-      const updateIngredients = [...ingredients];
-      const inputFieldId = getIngredientInputFieldId(id);
-
-      updateIngredients[inputFieldId] = value;
-      setIngredients(updateIngredients);
-    } else if (id === "recipe-instructions") {
-      setInstructions(value);
-    }
-  };
+  const [recipe, setRecipe] = useState("");
 
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const filteredEmptyIngredients = ingredients.filter(item => !!item.trim());
-
     try {
       const payload = {
-        title,
-        ingredients: filteredEmptyIngredients,
-        instructions
+        recipe
       };
+
+      console.log(JSON.stringify(payload));
 
       await fetch(
         "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
@@ -51,72 +32,46 @@ export const AddRecipe: React.FC = () => {
     }
   };
 
-  const addIngredientsInputField = (e: React.FormEvent<HTMLInputElement>) => {
-    const { id } = e.currentTarget;
-
-    const inputFieldId = getIngredientInputFieldId(id);
-
-    const lastInputFieldIsNotEmpty =
-      inputFieldId !== -1 && ingredients[ingredients.length - 1] !== "";
-
-    if (lastInputFieldIsNotEmpty) {
-      const expandIngredientsList = [...ingredients];
-
-      expandIngredientsList.push("");
-      setIngredients(expandIngredientsList);
-    }
+  const handleEditorChange = (e: any) => {
+    const content = e.target.getContent();
+    setRecipe(content);
   };
 
   return (
     <AddRecipeWrapper onSubmit={submitForm}>
-      <h1>Ny oppskrift</h1>
-      <label>
-        Navn
-        <input
-          id={"recipe-title"}
-          type={"text"}
-          value={title}
-          onChange={updateFieldValue}
-        />
-      </label>
-      <label>
-        Ingredienser
-        {ingredients.map((item, index) => {
-          return (
-            <input
-              key={index}
-              id={`recipe-ingredients-${index}`}
-              type={"text"}
-              value={item}
-              onKeyUp={addIngredientsInputField}
-              onChange={updateFieldValue}
-            />
-          );
-        })}
-      </label>
-      <label>
-        Instruksjoner
-        <input
-          id={"recipe-instructions"}
-          type={"textarea"}
-          value={instructions}
-          onChange={updateFieldValue}
-        />
-      </label>
+      <Editor
+        initialValue="<h2 id=new-recipe-title>Ny Oppskrift</p>
+        <p></p>
+        <p></p>
+        <p><strong>Ingredienser</strong></p>
+        <ul id=new-recipe-ingredients>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+        </ul>
+        <p></p>
+        <p></p>
+        <p id=new-recipe-instructions><strong>Instruksjoner</strong></p>
+        "
+        init={{
+          height: 500,
+          menubar: false,
+          plugins: [
+            "advlist autolink lists link image",
+            "charmap print preview anchor help",
+            "searchreplace visualblocks code",
+            "insertdatetime media table paste wordcount"
+          ],
+          toolbar:
+            "undo redo | formatselect | bold italic | \
+                alignleft aligncenter alignright | \
+                bullist numlist outdent indent | help"
+        }}
+        onChange={handleEditorChange}
+      />
       <button type={"submit"}>Add Recipe</button>
     </AddRecipeWrapper>
   );
-};
-
-const getIngredientInputFieldId = (id: string) => {
-  const inputFieldIdArray = id.match(/\d+/);
-
-  if (!inputFieldIdArray) {
-    console.log("error, could not find ingredients input id");
-    return -1;
-  }
-
-  return parseInt(inputFieldIdArray[0]);
 };
 
 const AddRecipeWrapper = styled.form`
