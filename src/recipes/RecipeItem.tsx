@@ -1,22 +1,23 @@
 import * as React from "react";
 import styled from "styled-components";
+import sanitize from "sanitize-html";
 
 export interface IRecipe {
-    ingredients: string[],
-    title: string,
-    instructions: string,
-    id: string
+  ingredients: string[];
+  title: string;
+  instructions: string;
+  id: string;
 }
 
-export const recipeItem = (recipe: IRecipe) => {
-    const {id, title, ingredients, instructions} = recipe;
-    return (
-        <RecipeWrapper key={id}>
-            <h1>{title}</h1>
-            <p>{ingredients}</p>
-            <p>{instructions}</p>
-            </RecipeWrapper>
-    )
+export const recipeItem = (recipe: any) => {
+  const { recipe: content, id } = recipe;
+  const sanitizedContent = sanitize(content);
+
+  return (
+    <RecipeWrapper key={id}>
+      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+    </RecipeWrapper>
+  );
 };
 
 const RecipeWrapper = styled.div`
