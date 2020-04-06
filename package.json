@@ -9,7 +9,6 @@
     "@tinymce/tinymce-react": "^3.5.0",
     "@types/sanitize-html": "^1.22.0",
     "express": "latest",
-    "express-favicon": "^2.0.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.15",
     "prettier": "^1.19.1",
