@@ -10,11 +10,12 @@ export interface IRecipe {
 }
 
 export const recipeItem = (recipe: any) => {
-  const { recipe: content, id } = recipe;
+  const { recipe: content, id, title } = recipe;
   const sanitizedContent = sanitize(content);
 
   return (
     <RecipeWrapper key={id}>
+      <h2>{title}</h2>
       <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
     </RecipeWrapper>
   );
