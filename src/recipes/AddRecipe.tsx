@@ -5,13 +5,15 @@ import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 
 export const AddRecipe: React.FC = () => {
   const [recipe, setRecipe] = useState("");
+  const [recipeTitle, setRecipeTitle] = useState("Title");
 
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
       const payload = {
-        recipe
+        recipe,
+        recipeTitle
       };
 
       console.log(JSON.stringify(payload));
@@ -37,8 +39,14 @@ export const AddRecipe: React.FC = () => {
     setRecipe(content);
   };
 
+  const handleTitleChange = (e: any) => {
+    const title = e.target.value;
+    setRecipeTitle(title);
+  };
+
   return (
     <AddRecipeWrapper onSubmit={submitForm}>
+      <input value={recipeTitle} onChange={handleTitleChange} />
       <Editor
         initialValue="<h2 id=new-recipe-title>Ny Oppskrift</p>
         <p></p>
