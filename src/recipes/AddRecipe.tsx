@@ -48,18 +48,16 @@ export const AddRecipe: React.FC = () => {
     <AddRecipeWrapper onSubmit={submitForm}>
       <input value={recipeTitle} onChange={handleTitleChange} />
       <Editor
-        initialValue="<h2 id=new-recipe-title>Ny Oppskrift</p>
-        <p></p>
-        <p></p>
+        initialValue="
         <p><strong>Ingredienser</strong></p>
         <ul id=new-recipe-ingredients>
           <li>Item 1</li>
           <li>Item 2</li>
           <li>Item 3</li>
         </ul>
-        <p></p>
-        <p></p>
-        <p id=new-recipe-instructions><strong>Instruksjoner</strong></p>
+        <div id=new-recipe-instructions><strong>Instruksjoner</strong>
+            <p>Lorem Ipsum</p>
+        </div>
         "
         init={{
           height: 500,
