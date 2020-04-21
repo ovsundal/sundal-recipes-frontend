@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { IRecipe, recipeItem } from "./RecipeItem";
+import { IRecipe, RecipeItem } from "./RecipeItem";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -29,7 +29,11 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
 
   return (
     <RecipeListWrapper>
-      {recipeData.map(recipeItem)}
+      {recipeData.map(({ title, id }) => (
+        <Link to={id} key={id}>
+          <li>{title}</li>
+        </Link>
+      ))}
 
       <Link to={"/add-recipe"}>
         <FloatingAddRecipeButton title={"Add Recipe"}>
@@ -40,7 +44,14 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
   );
 };
 
-const RecipeListWrapper = styled.div``;
+const RecipeListWrapper = styled.ul`
+  list-style: none;
+
+  li {
+    border-bottom: 1px solid black;
+    padding: 2rem;
+  }
+`;
 
 const FloatingAddRecipeButton = styled.a`
   position: fixed;
