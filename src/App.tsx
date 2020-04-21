@@ -1,17 +1,14 @@
 import * as React from "react";
 import styled from "styled-components";
-import {AppRoutes} from "./AppRoutes";
+import { AppRoutes } from "./AppRoutes";
 
 export const App: React.FC = () => {
-
-
   return (
     <AppWrapper>
       <AppRoutes />
     </AppWrapper>
   );
 };
-
 
 const AppWrapper = styled.div`
   display: flex;
