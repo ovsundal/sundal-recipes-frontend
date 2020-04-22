@@ -30,7 +30,7 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
   return (
     <RecipeListWrapper>
       {recipeData.map(({ title, id }) => (
-        <Link to={id} key={id}>
+        <Link to={"recipes/" + id} key={id}>
           <li>{title}</li>
         </Link>
       ))}

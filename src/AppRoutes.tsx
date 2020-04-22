@@ -9,8 +9,12 @@ export const AppRoutes: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route exact={true} path={"/"} children={<RecipeList />} />
-        <Route exact={true} path={"/:recipeId"} children={<RecipeItem />} />
-        <Route path={"/add-recipe"} children={<AddRecipe />} />
+        <Route
+          exact={true}
+          path={"/recipes/:recipeId"}
+          children={<RecipeItem />}
+        />
+        <Route exact={true} path={"/add-recipe"} children={<AddRecipe />} />
       </Switch>
     </BrowserRouter>
   );
