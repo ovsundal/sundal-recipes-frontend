@@ -4,6 +4,7 @@ import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 import { useState } from "react";
 import { AddRecipeWrapper, IRecipe } from "./RecipeItem";
 import styled from "styled-components";
+import { FormActionButton } from "./AddRecipe";
 
 interface IUpdateRecipeProps {}
 
@@ -76,7 +77,7 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
         }}
         onChange={handleEditorChange}
       />
-      <button type={"submit"}>Update Recipe</button>
+      <FormActionButton type={"submit"}>Update Recipe</FormActionButton>
     </UpdateRecipeWrapper>
   );
 };

@@ -73,7 +73,7 @@ export const AddRecipe: React.FC = () => {
         }}
         onChange={handleEditorChange}
       />
-      <button type={"submit"}>Add Recipe</button>
+      <FormActionButton type={"submit"}>Add Recipe</FormActionButton>
     </AddRecipeWrapper>
   );
 };
@@ -90,4 +90,10 @@ const AddRecipeWrapper = styled.form`
   input {
     display: block;
   }
+`;
+
+export const FormActionButton = styled.button`
+  background-color: #0069d9;
+  font-size: 1.5rem;
+  color: white;
 `;
