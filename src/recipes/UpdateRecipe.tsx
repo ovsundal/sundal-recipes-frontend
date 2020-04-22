@@ -1,15 +1,15 @@
 import * as React from "react";
-import { useParams, useHistory } from "react-router-dom";
-import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 import { useState } from "react";
-import { AddRecipeWrapper, IRecipe } from "./RecipeItem";
+import { useHistory } from "react-router-dom";
+import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
+import { AddRecipeWrapper } from "./RecipeItem";
 import styled from "styled-components";
 import { FormActionButton } from "./AddRecipe";
 
 interface IUpdateRecipeProps {}
 
 export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
-  const { location }: any = useHistory();
+  const { location, goBack }: any = useHistory();
   const { recipe: ingredients, title, id } = location.state.recipe;
 
   const [recipeId] = useState(id);
@@ -41,6 +41,7 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
           }
         }
       );
+      // TODO: invoking goBack() after api call doesnt work - why?
     } catch (e) {
       console.log("failed to add recipe: ", e.toString());
     }
