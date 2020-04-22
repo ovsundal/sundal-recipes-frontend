@@ -16,8 +16,6 @@ export const AddRecipe: React.FC = () => {
         recipeTitle
       };
 
-      console.log(JSON.stringify(payload));
-
       await fetch(
         "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
         // "http://localhost:5000/api/recipes/addRecipe",
