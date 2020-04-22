@@ -59,7 +59,7 @@ const RecipeListWrapper = styled.ul`
   }
 `;
 
-export const FloatingAddRecipeButton = styled.a`
+export const FloatingAddRecipeButton = styled.p`
   position: fixed;
   width: 60px;
   height: 60px;
