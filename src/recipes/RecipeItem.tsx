@@ -37,20 +37,25 @@ export const RecipeItem = () => {
   const sanitizedContent = sanitize(content);
 
   return (
-    <RecipeWrapper key={id}>
+    <AddRecipeWrapper key={id}>
       <h2>{title}</h2>
       <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
 
-      <Link to={`/update-recipe/${recipeId}`}>
+      <Link
+        to={{
+          pathname: `/update-recipe/`,
+          state: { recipe }
+        }}
+      >
         <FloatingAddRecipeButton title={"Update Recipe"}>
           <EditIcon className="fa fa-edit" />
         </FloatingAddRecipeButton>
       </Link>
-    </RecipeWrapper>
+    </AddRecipeWrapper>
   );
 };
 
-const RecipeWrapper = styled.div`
+export const AddRecipeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid black;
