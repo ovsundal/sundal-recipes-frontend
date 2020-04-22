@@ -59,7 +59,7 @@ const RecipeListWrapper = styled.ul`
   }
 `;
 
-const FloatingAddRecipeButton = styled.a`
+export const FloatingAddRecipeButton = styled.a`
   position: fixed;
   width: 60px;
   height: 60px;
@@ -72,7 +72,8 @@ const FloatingAddRecipeButton = styled.a`
   box-shadow: 2px 2px 3px #999;
 `;
 
-const PlusIcon = styled.i`
-  margin-top: 22px;
+export const PlusIcon = styled.i`
+  margin-top: 16px;
   color: #fff;
+  font-size: 2rem;
 `;

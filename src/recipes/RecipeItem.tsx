@@ -1,8 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import sanitize from "sanitize-html";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FloatingAddRecipeButton, PlusIcon } from "./RecipeList";
 
 export interface IRecipe {
   id: string;
@@ -39,6 +40,12 @@ export const RecipeItem = () => {
     <RecipeWrapper key={id}>
       <h2>{title}</h2>
       <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+
+      <Link to={`/update-recipe/${recipeId}`}>
+        <FloatingAddRecipeButton title={"Update Recipe"}>
+          <EditIcon className="fa fa-edit" />
+        </FloatingAddRecipeButton>
+      </Link>
     </RecipeWrapper>
   );
 };
@@ -48,3 +55,7 @@ const RecipeWrapper = styled.div`
   flex-direction: column;
   border: 1px solid black;
 `;
+
+const FloatingUpdateRecipeButton = styled(FloatingAddRecipeButton)``;
+
+const EditIcon = styled(PlusIcon)``;
