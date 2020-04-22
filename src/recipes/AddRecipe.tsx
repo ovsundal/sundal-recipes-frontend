@@ -43,10 +43,11 @@ export const AddRecipe: React.FC = () => {
   };
 
   return (
-    <AddRecipeWrapper onSubmit={submitForm}>
-      <input value={recipeTitle} onChange={handleTitleChange} />
-      <Editor
-        initialValue="
+    <AddRecipeWrapper>
+      <form onSubmit={submitForm}>
+        <input value={recipeTitle} onChange={handleTitleChange} />
+        <Editor
+          initialValue="
         <p><strong>Ingredienser</strong></p>
         <ul id=new-recipe-ingredients>
           <li>Item 1</li>
@@ -57,28 +58,29 @@ export const AddRecipe: React.FC = () => {
             <p>Lorem Ipsum</p>
         </div>
         "
-        init={{
-          height: 500,
-          menubar: false,
-          plugins: [
-            "advlist autolink lists link image",
-            "charmap print preview anchor help",
-            "searchreplace visualblocks code",
-            "insertdatetime media table paste wordcount"
-          ],
-          toolbar:
-            "undo redo | formatselect | bold italic | \
+          init={{
+            height: 800,
+            menubar: false,
+            plugins: [
+              "advlist autolink lists link image",
+              "charmap print preview anchor help",
+              "searchreplace visualblocks code",
+              "insertdatetime media table paste wordcount"
+            ],
+            toolbar:
+              "undo redo | formatselect | bold italic | \
                 alignleft aligncenter alignright | \
                 bullist numlist outdent indent | help"
-        }}
-        onChange={handleEditorChange}
-      />
-      <FormActionButton type={"submit"}>Add Recipe</FormActionButton>
+          }}
+          onChange={handleEditorChange}
+        />
+        <FormActionButton type={"submit"}>Add Recipe</FormActionButton>
+      </form>
     </AddRecipeWrapper>
   );
 };
 
-const AddRecipeWrapper = styled.form`
+const AddRecipeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -57,27 +57,29 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
   };
 
   return (
-    <UpdateRecipeWrapper onSubmit={submitForm}>
-      <input value={recipeTitle} onChange={handleTitleChange} />
-      <Editor
-        initialValue={recipe}
-        init={{
-          height: 800,
-          menubar: false,
-          plugins: [
-            "advlist autolink lists link image",
-            "charmap print preview anchor help",
-            "searchreplace visualblocks code",
-            "insertdatetime media table paste wordcount"
-          ],
-          toolbar:
-            "undo redo | formatselect | bold italic | \
+    <UpdateRecipeWrapper>
+      <form onSubmit={submitForm}>
+        <input value={recipeTitle} onChange={handleTitleChange} />
+        <Editor
+          initialValue={recipe}
+          init={{
+            height: 800,
+            menubar: false,
+            plugins: [
+              "advlist autolink lists link image",
+              "charmap print preview anchor help",
+              "searchreplace visualblocks code",
+              "insertdatetime media table paste wordcount"
+            ],
+            toolbar:
+              "undo redo | formatselect | bold italic | \
                   alignleft aligncenter alignright | \
                   bullist numlist outdent indent | help"
-        }}
-        onChange={handleEditorChange}
-      />
-      <FormActionButton type={"submit"}>Update Recipe</FormActionButton>
+          }}
+          onChange={handleEditorChange}
+        />
+        <FormActionButton type={"submit"}>Update Recipe</FormActionButton>
+      </form>
     </UpdateRecipeWrapper>
   );
 };
