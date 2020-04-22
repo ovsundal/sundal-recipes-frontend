@@ -66,7 +66,7 @@ const FloatingAddRecipeButton = styled.a`
   bottom: 40px;
   right: 40px;
   background-color: #0c9;
-  color: #fff;
+
   border-radius: 50px;
   text-align: center;
   box-shadow: 2px 2px 3px #999;
@@ -74,4 +74,5 @@ const FloatingAddRecipeButton = styled.a`
 
 const PlusIcon = styled.i`
   margin-top: 22px;
+  color: #fff;
 `;
