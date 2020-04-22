@@ -49,7 +49,13 @@ const RecipeListWrapper = styled.ul`
 
   li {
     border-bottom: 1px solid black;
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
   }
 `;
 
