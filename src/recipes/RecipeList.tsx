@@ -46,6 +46,7 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
 
 const RecipeListWrapper = styled.ul`
   list-style: none;
+  padding-left: 0;
 
   li {
     border-bottom: 1px solid black;
