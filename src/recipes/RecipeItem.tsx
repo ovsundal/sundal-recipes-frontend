@@ -58,7 +58,6 @@ export const RecipeItem = () => {
 export const AddRecipeWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
 `;
 
 const FloatingUpdateRecipeButton = styled(FloatingAddRecipeButton)``;
