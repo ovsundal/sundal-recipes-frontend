@@ -1,10 +1,11 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { AppRoutes } from "./AppRoutes";
 
 export const App: React.FC = () => {
   return (
     <AppWrapper>
+      <GlobalStyle />
       <AppRoutes />
     </AppWrapper>
   );
@@ -19,4 +20,10 @@ const AppWrapper = styled.div`
   font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
   background-color: #ccc;
+`;
+
+const GlobalStyle = createGlobalStyle`
+    body {
+      margin: 0;
+    }
 `;
