@@ -1,11 +1,38 @@
 import * as React from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
+import { IRecipe } from "./RecipeItem";
+
+interface ITags {
+  _id: string;
+  id: string;
+  name: string;
+}
 
 export const AddRecipe: React.FC = () => {
   const [recipe, setRecipe] = useState("");
   const [recipeTitle, setRecipeTitle] = useState("");
+  const [tagData, setTagData] = useState([] as ITags[]);
+  const [selectedTags, setSelectedTags] = useState([] as ITags[]);
+
+  useEffect(() => {
+    const fetchTags = async () => {
+      try {
+        const response = await fetch(
+          "https://sundal-recipes.herokuapp.com/api/tags/getTags"
+        );
+
+        const { tags }: any = await response.json();
+
+        setTagData(tags);
+      } catch (e) {
+        console.log("Error, could not get tags", e);
+      }
+    };
+
+    fetchTags();
+  }, []);
 
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,12 +40,14 @@ export const AddRecipe: React.FC = () => {
     try {
       const payload = {
         recipe,
-        recipeTitle
+        recipeTitle,
+        recipeTags: []
       };
+      console.log(JSON.stringify(payload));
 
       await fetch(
-        "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
-        // "http://localhost:5000/api/recipes/addRecipe",
+        // "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
+        "http://localhost:5000/api/recipes/addRecipe",
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -78,6 +107,14 @@ export const AddRecipe: React.FC = () => {
         }}
         onChange={handleEditorChange}
       />
+      <TagsDivider>
+        {tagData.map(({ id, name }) => (
+          <label key={id}>
+            {name}
+            <input type={"checkbox"} />
+          </label>
+        ))}
+      </TagsDivider>
       <FormActionButton type={"submit"}>Add Recipe</FormActionButton>
     </FormWrapper>
   );
@@ -100,6 +137,8 @@ export const RecipeTitle = styled.input`
 
   font-size: 2rem;
 `;
+
+export const TagsDivider = styled.div``;
 
 export const FormActionButton = styled.button`
   width: 100%;
