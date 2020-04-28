@@ -37,7 +37,13 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
       {isLoading && <Spinner />}
       {recipeData.map(({ title, id }) => (
         <Link to={"recipes/" + id} key={id}>
-          <li>{title}</li>
+          <ListItem>
+            <li>{title}</li>
+            <TagContainer>
+              <span>Middag</span>
+              <span>Kjøtt</span>
+            </TagContainer>
+          </ListItem>
         </Link>
       ))}
 
