@@ -16,15 +16,14 @@ const AppWrapper = styled.div`
   width: 100%;
   flex-direction: column;
   align-items: center;
-
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 18px;
-  background-color: #ccc;
 `;
 
 const GlobalStyle = createGlobalStyle`
     html {
       font-size: 62.5%;
+      font-family: Verdana, Geneva, sans-serif;
+      background-color: #ccc;
     }
     
     body {
