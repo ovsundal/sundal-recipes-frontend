@@ -41,9 +41,12 @@ export const RecipeItem = () => {
   const { recipe: content, id, title } = recipe;
   const sanitizedContent = sanitize(content);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <AddRecipeWrapper key={id}>
-      {isLoading && <Spinner />}
       <h2>{title}</h2>
       <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
 

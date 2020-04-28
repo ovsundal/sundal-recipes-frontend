@@ -32,9 +32,12 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
     fetchRecipes();
   }, []);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <RecipeListWrapper>
-      {isLoading && <Spinner />}
       {recipeData.map(({ title, id }) => (
         <Link to={"recipes/" + id} key={id}>
           <ListItem>
