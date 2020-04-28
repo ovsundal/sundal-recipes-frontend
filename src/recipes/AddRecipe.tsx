@@ -43,11 +43,10 @@ export const AddRecipe: React.FC = () => {
   };
 
   return (
-    <AddRecipeWrapper>
-      <form onSubmit={submitForm}>
-        <input value={recipeTitle} onChange={handleTitleChange} />
-        <Editor
-          initialValue="
+    <FormWrapper onSubmit={submitForm}>
+      <input value={recipeTitle} onChange={handleTitleChange} />
+      <Editor
+        initialValue="
         <p><strong>Ingredienser</strong></p>
         <ul id=new-recipe-ingredients>
           <li>Item 1</li>
@@ -58,29 +57,28 @@ export const AddRecipe: React.FC = () => {
             <p>Lorem Ipsum</p>
         </div>
         "
-          init={{
-            height: 800,
-            menubar: false,
-            plugins: [
-              "advlist autolink lists link image",
-              "charmap print preview anchor help",
-              "searchreplace visualblocks code",
-              "insertdatetime media table paste wordcount"
-            ],
-            toolbar:
-              "undo redo | formatselect | bold italic | \
+        init={{
+          height: 800,
+          menubar: false,
+          plugins: [
+            "advlist autolink lists link image",
+            "charmap print preview anchor help",
+            "searchreplace visualblocks code",
+            "insertdatetime media table paste wordcount"
+          ],
+          toolbar:
+            "undo redo | formatselect | bold italic | \
                 alignleft aligncenter alignright | \
                 bullist numlist outdent indent | help"
-          }}
-          onChange={handleEditorChange}
-        />
-        <FormActionButton type={"submit"}>Add Recipe</FormActionButton>
-      </form>
-    </AddRecipeWrapper>
+        }}
+        onChange={handleEditorChange}
+      />
+      <FormActionButton type={"submit"}>Add Recipe</FormActionButton>
+    </FormWrapper>
   );
 };
 
-const AddRecipeWrapper = styled.div`
+const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,10 +89,17 @@ const AddRecipeWrapper = styled.div`
 
   input {
     display: block;
+    width: 100%;
+    margin: 1rem 0;
+
+    font-size: 1.5rem;
   }
 `;
 
 export const FormActionButton = styled.button`
+  width: 100%;
+  margin-top: 1rem;
+
   background-color: #0069d9;
   font-size: 1.5rem;
   color: white;
