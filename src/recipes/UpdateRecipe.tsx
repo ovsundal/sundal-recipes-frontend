@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 import { AddRecipeWrapper } from "./RecipeItem";
 import styled from "styled-components";
-import { FormActionButton } from "./AddRecipe";
+import { FormActionButton, RecipeTitle } from "./AddRecipe";
 
 interface IUpdateRecipeProps {}
 
@@ -60,11 +60,12 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
   return (
     <UpdateRecipeWrapper>
       <form onSubmit={submitForm}>
-        <input value={recipeTitle} onChange={handleTitleChange} />
+        <RecipeTitle value={recipeTitle} onChange={handleTitleChange} />
         <Editor
           initialValue={recipe}
           init={{
-            height: 800,
+            width: "80vw",
+            height: "90vh",
             menubar: false,
             plugins: [
               "advlist autolink lists link image",

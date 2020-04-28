@@ -5,7 +5,7 @@ import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 
 export const AddRecipe: React.FC = () => {
   const [recipe, setRecipe] = useState("");
-  const [recipeTitle, setRecipeTitle] = useState("Title");
+  const [recipeTitle, setRecipeTitle] = useState("");
 
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,7 +44,11 @@ export const AddRecipe: React.FC = () => {
 
   return (
     <FormWrapper onSubmit={submitForm}>
-      <input value={recipeTitle} onChange={handleTitleChange} />
+      <RecipeTitle
+        placeholder={"Recipe title"}
+        value={recipeTitle}
+        onChange={handleTitleChange}
+      />
       <Editor
         initialValue="
         <p><strong>Ingredienser</strong></p>
@@ -58,7 +62,8 @@ export const AddRecipe: React.FC = () => {
         </div>
         "
         init={{
-          height: 800,
+          width: "80vw",
+          height: "90vh",
           menubar: false,
           plugins: [
             "advlist autolink lists link image",
@@ -86,14 +91,14 @@ const FormWrapper = styled.form`
   label {
     display: block;
   }
+`;
 
-  input {
-    display: block;
-    width: 100%;
-    margin: 1rem 0;
+export const RecipeTitle = styled.input`
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
 
-    font-size: 1.5rem;
-  }
+  font-size: 2rem;
 `;
 
 export const FormActionButton = styled.button`
@@ -101,6 +106,6 @@ export const FormActionButton = styled.button`
   margin-top: 1rem;
 
   background-color: #0069d9;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
 `;
