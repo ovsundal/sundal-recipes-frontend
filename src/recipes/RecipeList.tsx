@@ -55,14 +55,13 @@ const RecipeListWrapper = styled.ul`
   padding-left: 0;
 
   li {
-    border-bottom: 1px solid black;
-    padding: 1.5rem;
+    padding: 0.5rem 0 0.5rem 1rem;
   }
 
   a {
     color: black;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 2.5rem;
   }
 `;
 
@@ -80,7 +79,30 @@ export const FloatingAddRecipeButton = styled.p`
 `;
 
 export const PlusIcon = styled.i`
-  margin-top: 16px;
+  margin-top: 1.6rem;
   color: #fff;
-  font-size: 2rem;
+  font-size: 3rem;
+`;
+
+const ListItem = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  border-bottom: 1px solid black;
+`;
+
+const TagContainer = styled.div`
+  span {
+    margin: 0 0.3rem;
+
+    opacity: 0.7;
+    background-color: white;
+    font-style: italic;
+    font-size: 1.3rem;
+    border-radius: 2rem;
+  }
+
+  span:first-child {
+    margin: 0;
+  }
 `;

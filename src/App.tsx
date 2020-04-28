@@ -23,6 +23,10 @@ const AppWrapper = styled.div`
 `;
 
 const GlobalStyle = createGlobalStyle`
+    html {
+      font-size: 62.5%;
+    }
+    
     body {
       margin: 0;
     }
