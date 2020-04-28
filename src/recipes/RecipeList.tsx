@@ -3,15 +3,18 @@ import { useEffect, useState } from "react";
 import { IRecipe, RecipeItem } from "./RecipeItem";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { Spinner } from "../common/Spinner";
 
 interface IRecipeListProps {}
 
 export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
   const [recipeData, setRecipeData] = useState([] as IRecipe[]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
+        setIsLoading(true);
         const response = await fetch(
           "https://sundal-recipes.herokuapp.com/api/recipes/getRecipes"
         );
@@ -21,6 +24,8 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
         setRecipeData(recipes);
       } catch (e) {
         console.log("Error, could not get recipes", e);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -29,6 +34,7 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
 
   return (
     <RecipeListWrapper>
+      {isLoading && <Spinner />}
       {recipeData.map(({ title, id }) => (
         <Link to={"recipes/" + id} key={id}>
           <li>{title}</li>
