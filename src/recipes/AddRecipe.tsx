@@ -41,13 +41,13 @@ export const AddRecipe: React.FC = () => {
       const payload = {
         recipe,
         recipeTitle,
-        recipeTags: []
+        recipeTags: selectedTags
       };
       console.log(JSON.stringify(payload));
 
       await fetch(
-        // "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
-        "http://localhost:5000/api/recipes/addRecipe",
+        "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
+        // "http://localhost:5000/api/recipes/addRecipe",
         {
           method: "POST",
           body: JSON.stringify(payload),
@@ -70,7 +70,7 @@ export const AddRecipe: React.FC = () => {
     const title = e.target.value;
     setRecipeTitle(title);
   };
-
+  // TODO: add clickhandler here and hookup selected checkboxes to selectedTags. Do this in UpdateRecipe too.
   return (
     <FormWrapper onSubmit={submitForm}>
       <RecipeTitle
