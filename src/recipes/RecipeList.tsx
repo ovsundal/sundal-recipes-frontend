@@ -4,6 +4,7 @@ import { IRecipe, RecipeItem } from "./RecipeItem";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Spinner } from "../common/Spinner";
+import { GLOBAL_API } from "../common/constants";
 
 interface IRecipeListProps {}
 
@@ -15,10 +16,7 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
     const fetchRecipes = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(
-          "https://sundal-recipes.herokuapp.com/api/recipes/getRecipes"
-          // "http://localhost:5000/api/recipes/getRecipes"
-        );
+        const response = await fetch(`${GLOBAL_API}recipes/getRecipes`);
 
         const { recipes }: { recipes: IRecipe[] } = await response.json();
 

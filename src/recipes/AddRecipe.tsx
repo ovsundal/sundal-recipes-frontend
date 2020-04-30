@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 import { IRecipe } from "./RecipeItem";
+import { GLOBAL_API } from "../common/constants";
 
 export interface ITags {
   _id: string;
@@ -44,17 +45,13 @@ export const AddRecipe: React.FC = () => {
         recipeTags: selectedTags
       };
 
-      await fetch(
-        "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
-        // "http://localhost:5000/api/recipes/addRecipe",
-        {
-          method: "POST",
-          body: JSON.stringify(payload),
-          headers: {
-            "Content-Type": "application/json"
-          }
+      await fetch(`${GLOBAL_API}recipes/addRecipe`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json"
         }
-      );
+      });
     } catch (e) {
       console.log("failed to add recipe: ", e.toString());
     }

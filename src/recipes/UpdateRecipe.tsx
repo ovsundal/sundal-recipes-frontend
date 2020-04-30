@@ -11,6 +11,7 @@ import {
   RecipeTitle,
   TagsDivider
 } from "./AddRecipe";
+import { GLOBAL_API } from "../common/constants";
 
 interface IUpdateRecipeProps {}
 
@@ -27,9 +28,7 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const response = await fetch(
-          "https://sundal-recipes.herokuapp.com/api/tags/getTags"
-        );
+        const response = await fetch(`${GLOBAL_API}tags/getTags`);
 
         const { tags }: any = await response.json();
 
@@ -57,17 +56,13 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
         recipeTags: selectedTags
       };
 
-      await fetch(
-        "https://sundal-recipes.herokuapp.com/api/recipes/updateRecipe",
-        // "http://localhost:5000/api/recipes/updateRecipe",
-        {
-          method: "POST",
-          body: JSON.stringify(payload),
-          headers: {
-            "Content-Type": "application/json"
-          }
+      await fetch(`${GLOBAL_API}recipes/updateRecipe`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json"
         }
-      );
+      });
       // TODO: invoking goBack() after api call doesnt work - why?
     } catch (e) {
       console.log("failed to add recipe: ", e.toString());

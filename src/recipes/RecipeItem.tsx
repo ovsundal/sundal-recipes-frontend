@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { FloatingAddRecipeButton, PlusIcon } from "./RecipeList";
 import { Spinner } from "../common/Spinner";
 import { ITags } from "./AddRecipe";
+import { GLOBAL_API } from "../common/constants";
 
 export interface IRecipe {
   id: string;
@@ -24,8 +25,7 @@ export const RecipeItem = () => {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://sundal-recipes.herokuapp.com/api/recipes/getRecipe?id=${recipeId}`
-          // `http://localhost:5000/api/recipes/getRecipe?id=${recipeId}`
+          `${GLOBAL_API}recipes/getRecipe?id=${recipeId}`
         );
         const { recipes }: { recipes: IRecipe[] } = await response.json();
 
