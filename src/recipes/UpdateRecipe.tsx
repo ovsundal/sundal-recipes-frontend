@@ -63,6 +63,8 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
           "Content-Type": "application/json"
         }
       });
+      console.log(goBack());
+
       // TODO: invoking goBack() after api call doesnt work - why?
     } catch (e) {
       console.log("failed to add recipe: ", e.toString());
@@ -80,8 +82,6 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
   };
 
   const renderTags = (tagData: ITags[]) => {
-    console.log(selectedTags);
-
     return (
       <TagsDivider>
         {tagData.map(({ id, name }) => (
