@@ -17,6 +17,7 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
         setIsLoading(true);
         const response = await fetch(
           "https://sundal-recipes.herokuapp.com/api/recipes/getRecipes"
+          // "http://localhost:5000/api/recipes/getRecipes"
         );
 
         const { recipes }: { recipes: IRecipe[] } = await response.json();
@@ -38,13 +39,12 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
 
   return (
     <RecipeListWrapper>
-      {recipeData.map(({ title, id }) => (
+      {recipeData.map(({ title, id, tags }) => (
         <Link to={"recipes/" + id} key={id}>
           <ListItem>
             <li>{title}</li>
             <TagContainer>
-              <span>Middag</span>
-              <span>Kjøtt</span>
+              {tags && tags.map(({ id, name }) => <span key={id}>{name}</span>)}
             </TagContainer>
           </ListItem>
         </Link>

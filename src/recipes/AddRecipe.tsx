@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 import { IRecipe } from "./RecipeItem";
 
-interface ITags {
+export interface ITags {
   _id: string;
   id: string;
   name: string;

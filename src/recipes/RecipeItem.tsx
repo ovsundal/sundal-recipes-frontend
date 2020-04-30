@@ -5,11 +5,13 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FloatingAddRecipeButton, PlusIcon } from "./RecipeList";
 import { Spinner } from "../common/Spinner";
+import { ITags } from "./AddRecipe";
 
 export interface IRecipe {
   id: string;
   recipe: string;
   title: string;
+  tags?: ITags[];
 }
 
 export const RecipeItem = () => {
