@@ -43,7 +43,6 @@ export const AddRecipe: React.FC = () => {
         recipeTitle,
         recipeTags: selectedTags
       };
-      console.log(JSON.stringify(payload));
 
       await fetch(
         "https://sundal-recipes.herokuapp.com/api/recipes/addRecipe",
@@ -70,6 +69,20 @@ export const AddRecipe: React.FC = () => {
     const title = e.target.value;
     setRecipeTitle(title);
   };
+
+  const handleTagChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, checked } = e.target;
+    const selectedTag = tagData.find(tag => tag.id === id);
+    let copySelectedTags: ITags[] = [...selectedTags];
+
+    if (checked && selectedTag) {
+      copySelectedTags.push(selectedTag);
+    } else {
+      copySelectedTags = copySelectedTags.filter(tag => tag.id !== id);
+    }
+    setSelectedTags(copySelectedTags);
+  };
+
   // TODO: add clickhandler here and hookup selected checkboxes to selectedTags. Do this in UpdateRecipe too.
   return (
     <FormWrapper onSubmit={submitForm}>
@@ -111,7 +124,7 @@ export const AddRecipe: React.FC = () => {
         {tagData.map(({ id, name }) => (
           <label key={id}>
             {name}
-            <input type={"checkbox"} />
+            <input id={id} type={"checkbox"} onChange={handleTagChange} />
           </label>
         ))}
       </TagsDivider>
