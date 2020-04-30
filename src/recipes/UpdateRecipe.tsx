@@ -1,10 +1,16 @@
 import * as React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 import { AddRecipeWrapper } from "./RecipeItem";
 import styled from "styled-components";
-import { FormActionButton, RecipeTitle } from "./AddRecipe";
+import {
+  FormActionButton,
+  FormWrapper,
+  ITags,
+  RecipeTitle,
+  TagsDivider
+} from "./AddRecipe";
 
 interface IUpdateRecipeProps {}
 
@@ -15,6 +21,26 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
   const [recipeId] = useState(id);
   const [recipeTitle, setRecipeTitle] = useState(title);
   const [recipe, setRecipe] = useState(ingredients);
+  const [tagData, setTagData] = useState([] as ITags[]);
+  const [selectedTags, setSelectedTags] = useState([] as ITags[]);
+  // TODO: refactor this into AddRecipes, too much code duplication here
+  useEffect(() => {
+    const fetchTags = async () => {
+      try {
+        const response = await fetch(
+          "https://sundal-recipes.herokuapp.com/api/tags/getTags"
+        );
+
+        const { tags }: any = await response.json();
+
+        setTagData(tags);
+      } catch (e) {
+        console.log("Error, could not get tags", e);
+      }
+    };
+
+    fetchTags();
+  }, []);
 
   if (!id) {
     return null;
@@ -27,7 +53,8 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
       const payload = {
         recipe,
         recipeTitle,
-        recipeId
+        recipeId,
+        recipeTags: selectedTags
       };
 
       await fetch(
@@ -57,32 +84,59 @@ export const UpdateRecipe: React.FC<IUpdateRecipeProps> = ({ ...rest }) => {
     setRecipeTitle(title);
   };
 
+  const renderTags = (tagData: ITags[]) => {
+    console.log(selectedTags);
+
+    return (
+      <TagsDivider>
+        {tagData.map(({ id, name }) => (
+          <label key={id}>
+            {name}
+            <input id={id} type={"checkbox"} onChange={handleTagChange} />
+          </label>
+        ))}
+      </TagsDivider>
+    );
+  };
+
+  const handleTagChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, checked } = e.target;
+    const selectedTag = tagData.find(tag => tag.id === id);
+    let copySelectedTags: ITags[] = [...selectedTags];
+
+    if (checked && selectedTag) {
+      copySelectedTags.push(selectedTag);
+    } else {
+      copySelectedTags = copySelectedTags.filter(tag => tag.id !== id);
+    }
+    setSelectedTags(copySelectedTags);
+  };
+
   return (
-    <UpdateRecipeWrapper>
-      <form onSubmit={submitForm}>
-        <RecipeTitle value={recipeTitle} onChange={handleTitleChange} />
-        <Editor
-          initialValue={recipe}
-          init={{
-            width: "80vw",
-            height: "90vh",
-            menubar: false,
-            plugins: [
-              "advlist autolink lists link image",
-              "charmap print preview anchor help",
-              "searchreplace visualblocks code",
-              "insertdatetime media table paste wordcount"
-            ],
-            toolbar:
-              "undo redo | formatselect | bold italic | \
+    <FormWrapper onSubmit={submitForm}>
+      <RecipeTitle value={recipeTitle} onChange={handleTitleChange} />
+      <Editor
+        initialValue={recipe}
+        init={{
+          width: "80vw",
+          height: "90vh",
+          menubar: false,
+          plugins: [
+            "advlist autolink lists link image",
+            "charmap print preview anchor help",
+            "searchreplace visualblocks code",
+            "insertdatetime media table paste wordcount"
+          ],
+          toolbar:
+            "undo redo | formatselect | bold italic | \
                   alignleft aligncenter alignright | \
                   bullist numlist outdent indent | help"
-          }}
-          onChange={handleEditorChange}
-        />
-        <FormActionButton type={"submit"}>Update Recipe</FormActionButton>
-      </form>
-    </UpdateRecipeWrapper>
+        }}
+        onChange={handleEditorChange}
+      />
+      {renderTags(tagData)}
+      <FormActionButton type={"submit"}>Update Recipe</FormActionButton>
+    </FormWrapper>
   );
 };
 

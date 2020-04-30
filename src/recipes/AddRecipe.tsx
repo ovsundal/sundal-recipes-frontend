@@ -83,7 +83,17 @@ export const AddRecipe: React.FC = () => {
     setSelectedTags(copySelectedTags);
   };
 
-  // TODO: add clickhandler here and hookup selected checkboxes to selectedTags. Do this in UpdateRecipe too.
+  const renderTags = (tagData: ITags[]) => (
+    <TagsDivider>
+      {tagData.map(({ id, name }) => (
+        <label key={id}>
+          {name}
+          <input id={id} type={"checkbox"} onChange={handleTagChange} />
+        </label>
+      ))}
+    </TagsDivider>
+  );
+
   return (
     <FormWrapper onSubmit={submitForm}>
       <RecipeTitle
@@ -120,20 +130,13 @@ export const AddRecipe: React.FC = () => {
         }}
         onChange={handleEditorChange}
       />
-      <TagsDivider>
-        {tagData.map(({ id, name }) => (
-          <label key={id}>
-            {name}
-            <input id={id} type={"checkbox"} onChange={handleTagChange} />
-          </label>
-        ))}
-      </TagsDivider>
+      {renderTags(tagData)}
       <FormActionButton type={"submit"}>Add Recipe</FormActionButton>
     </FormWrapper>
   );
 };
 
-const FormWrapper = styled.form`
+export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
