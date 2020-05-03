@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
 import { IRecipe } from "./RecipeItem";
 import { GLOBAL_API } from "../common/constants";
+import { useHistory } from "react-router-dom";
 
 export interface ITags {
   _id: string;
@@ -11,11 +12,25 @@ export interface ITags {
   name: string;
 }
 
-export const AddRecipe: React.FC = () => {
+const newRecipeBoilerPlateText = `
+        <p><strong>Ingredienser</strong></p>
+        <ul id=new-recipe-ingredients>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+        </ul>
+        <div id=new-recipe-instructions><strong>Instruksjoner</strong>
+            <p>Lorem Ipsum</p>
+        </div>
+        `;
+
+export const AddUpdateRecipe: React.FC = () => {
+  const [recipeId, setRecipeId] = useState("");
   const [recipe, setRecipe] = useState("");
   const [recipeTitle, setRecipeTitle] = useState("");
   const [tagData, setTagData] = useState([] as ITags[]);
   const [selectedTags, setSelectedTags] = useState([] as ITags[]);
+  const { location, goBack }: any = useHistory();
 
   useEffect(() => {
     const fetchTags = async () => {
@@ -35,17 +50,42 @@ export const AddRecipe: React.FC = () => {
     fetchTags();
   }, []);
 
+  // if this is an update, fill existing values
+
+  useEffect(() => {
+    if (location.state) {
+      const { recipe: ingredients, title, id } = location.state.recipe;
+      setRecipeId(id);
+      setRecipeTitle(title);
+      setRecipe(ingredients);
+    }
+  }, []);
+
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const payload = {
+      let payload: any = {
         recipe,
         recipeTitle,
+        recipeId,
         recipeTags: selectedTags
       };
 
-      await fetch(`${GLOBAL_API}recipes/addRecipe`, {
+      let url = `${GLOBAL_API}recipes/addRecipe`;
+
+      if (recipeId) {
+        url = `${GLOBAL_API}recipes/updateRecipe`;
+
+        payload = {
+          recipe,
+          recipeTitle,
+          recipeId,
+          recipeTags: selectedTags
+        };
+      }
+
+      await fetch(url, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
@@ -64,6 +104,10 @@ export const AddRecipe: React.FC = () => {
 
   const handleTitleChange = (e: any) => {
     const title = e.target.value;
+    console.log("in handle title");
+
+    console.log(title);
+
     setRecipeTitle(title);
   };
 
@@ -90,6 +134,8 @@ export const AddRecipe: React.FC = () => {
       ))}
     </TagsDivider>
   );
+  console.log("in render");
+  console.log(recipeId);
 
   return (
     <FormWrapper onSubmit={submitForm}>
@@ -99,17 +145,7 @@ export const AddRecipe: React.FC = () => {
         onChange={handleTitleChange}
       />
       <Editor
-        initialValue="
-        <p><strong>Ingredienser</strong></p>
-        <ul id=new-recipe-ingredients>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-        </ul>
-        <div id=new-recipe-instructions><strong>Instruksjoner</strong>
-            <p>Lorem Ipsum</p>
-        </div>
-        "
+        initialValue={recipe || newRecipeBoilerPlateText}
         init={{
           width: "80vw",
           height: "90vh",
@@ -128,7 +164,9 @@ export const AddRecipe: React.FC = () => {
         onChange={handleEditorChange}
       />
       {renderTags(tagData)}
-      <FormActionButton type={"submit"}>Add Recipe</FormActionButton>
+      <FormActionButton type={"submit"}>
+        {recipeId ? "Update Recipe" : "Add Recipe"}
+      </FormActionButton>
     </FormWrapper>
   );
 };

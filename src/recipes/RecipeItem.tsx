@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FloatingAddRecipeButton, PlusIcon } from "./RecipeList";
 import { Spinner } from "../common/Spinner";
-import { ITags } from "./AddRecipe";
+import { ITags } from "./AddUpdateRecipe";
 import { GLOBAL_API } from "../common/constants";
 
 export interface IRecipe {
