@@ -12,7 +12,7 @@ export interface IRecipe {
   id: string;
   recipe: string;
   title: string;
-  tags?: ITags[];
+  tags: ITags[];
 }
 
 export const RecipeItem = () => {
