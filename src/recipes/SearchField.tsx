@@ -30,7 +30,7 @@ export const SearchField: React.FC<ISearchFieldProps> = ({
       </label>
       <input
         id={"recipe-search-field"}
-        placeholder={"Search for recipe"}
+        placeholder={"Søk etter oppskrift"}
         value={searchTerm}
         onChange={updateSearchField}
       ></input>
