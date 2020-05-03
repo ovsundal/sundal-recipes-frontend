@@ -23,17 +23,38 @@ export const SearchField: React.FC<ISearchFieldProps> = ({
   }, [searchTerm]);
 
   const updateSearchField = (e: any) => setSearchTerm(e.target.value);
-
   return (
-    <SearchFieldWrapper
-      placeholder={"Search for recipe"}
-      value={searchTerm}
-      onChange={updateSearchField}
-    />
+    <SearchFieldWrapper>
+      <label htmlFor={"recipe-search-field"}>
+        <i className="fa fa-search"></i>
+      </label>
+      <input
+        id={"recipe-search-field"}
+        placeholder={"Search for recipe"}
+        value={searchTerm}
+        onChange={updateSearchField}
+      ></input>
+    </SearchFieldWrapper>
   );
 };
 
-const SearchFieldWrapper = styled.input`
-  width: 100%;
-  font-size: 2.5rem;
+const SearchFieldWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  width: inherit;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+
+  input {
+    flex-grow: 1;
+
+    padding: 0.5rem;
+    border: 0;
+    font-size: 2.5rem;
+  }
+  i {
+    padding: 0 1rem;
+  }
 `;
