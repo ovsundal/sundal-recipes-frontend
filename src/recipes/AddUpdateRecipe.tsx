@@ -39,8 +39,15 @@ export const AddUpdateRecipe: React.FC = () => {
           "https://sundal-recipes.herokuapp.com/api/tags/getTags"
         );
 
-        const { tags }: any = await response.json();
+        const { tags }: { tags: ITags[] } = await response.json();
+        const existingTags = [] as ITags[];
 
+        location.state.recipe.tags.forEach((t: string) => {
+          const foundTag = tags.filter(({ id }) => id === t)[0];
+          existingTags.push(foundTag);
+        });
+
+        setSelectedTags(existingTags);
         setTagData(tags);
       } catch (e) {
         console.log("Error, could not get tags", e);
@@ -51,10 +58,9 @@ export const AddUpdateRecipe: React.FC = () => {
   }, []);
 
   // if this is an update, fill existing values
-
   useEffect(() => {
     if (location.state) {
-      const { recipe: ingredients, title, id } = location.state.recipe;
+      const { recipe: ingredients, title, id, tags } = location.state.recipe;
       setRecipeId(id);
       setRecipeTitle(title);
       setRecipe(ingredients);
@@ -104,10 +110,6 @@ export const AddUpdateRecipe: React.FC = () => {
 
   const handleTitleChange = (e: any) => {
     const title = e.target.value;
-    console.log("in handle title");
-
-    console.log(title);
-
     setRecipeTitle(title);
   };
 
@@ -126,16 +128,23 @@ export const AddUpdateRecipe: React.FC = () => {
 
   const renderTags = (tagData: ITags[]) => (
     <TagsDivider>
-      {tagData.map(({ id, name }) => (
-        <label key={id}>
-          {name}
-          <input id={id} type={"checkbox"} onChange={handleTagChange} />
-        </label>
-      ))}
+      {tagData.map(({ id, name }) => {
+        const isChecked = selectedTags.filter((tag: ITags) => tag.id === id)[0];
+
+        return (
+          <label key={id}>
+            {name}
+            <input
+              id={id}
+              type={"checkbox"}
+              onChange={handleTagChange}
+              checked={!!isChecked}
+            />
+          </label>
+        );
+      })}
     </TagsDivider>
   );
-  console.log("in render");
-  console.log(recipeId);
 
   return (
     <FormWrapper onSubmit={submitForm}>
