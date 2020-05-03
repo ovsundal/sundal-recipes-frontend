@@ -5,11 +5,13 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Spinner } from "../common/Spinner";
 import { GLOBAL_API } from "../common/constants";
+import { SearchField } from "./SearchField";
 
 interface IRecipeListProps {}
 
 export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
-  const [recipeData, setRecipeData] = useState([] as IRecipe[]);
+  const [recipeData, setAllRecipeData] = useState([] as IRecipe[]);
+  const [shownRecipes, setShownRecipes] = useState([] as IRecipe[]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -20,7 +22,8 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
 
         const { recipes }: { recipes: IRecipe[] } = await response.json();
 
-        setRecipeData(recipes);
+        setAllRecipeData(recipes);
+        setShownRecipes(recipes);
       } catch (e) {
         console.log("Error, could not get recipes", e);
       } finally {
@@ -35,9 +38,13 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
     return <Spinner />;
   }
 
+  const updateShownRecipes = (updatedRecipes: IRecipe[]) =>
+    setShownRecipes(updatedRecipes);
+
   return (
     <RecipeListWrapper>
-      {recipeData.map(({ title, id, tags }) => (
+      <SearchField recipeData={recipeData} updateRecipes={updateShownRecipes} />
+      {shownRecipes.map(({ title, id, tags }) => (
         <Link to={"recipes/" + id} key={id}>
           <ListItem>
             <li>{title}</li>
