@@ -41,7 +41,7 @@ export const SearchField: React.FC<ISearchFieldProps> = ({
 const SearchFieldWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: inherit;
+  width: 100%;
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 0.5rem;
