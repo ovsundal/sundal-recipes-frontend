@@ -67,7 +67,6 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
 const RecipeListWrapper = styled.ul`
   list-style: none;
   padding-left: 0;
-
   li {
     padding: 0.5rem 0 0.5rem 1rem;
   }
@@ -76,6 +75,10 @@ const RecipeListWrapper = styled.ul`
     color: black;
     text-decoration: none;
     font-size: 2.5rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: inherit;
   }
 `;
 
