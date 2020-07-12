@@ -205,6 +205,7 @@ export const TagsDivider = styled.div``;
 export const FormActionButton = styled.button`
   width: 100%;
   margin-top: 1rem;
+  margin-bottom: 5rem;
 
   background-color: #0069d9;
   font-size: 2rem;
