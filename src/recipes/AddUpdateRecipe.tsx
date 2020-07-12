@@ -42,6 +42,8 @@ export const AddUpdateRecipe: React.FC = () => {
         const { tags }: { tags: ITags[] } = await response.json();
         const existingTags = [] as ITags[];
 
+        setTagData(tags);
+
         location.state.recipe.tags.forEach((t: string) => {
           const foundTag = tags.filter(({ id }) => id === t)[0];
           existingTags.push(foundTag);
