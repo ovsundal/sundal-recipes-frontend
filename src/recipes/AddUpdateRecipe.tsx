@@ -93,13 +93,18 @@ export const AddUpdateRecipe: React.FC = () => {
         };
       }
 
-      await fetch(url, {
+      const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
           "Content-Type": "application/json"
         }
       });
+
+      // return user if saved
+      if (response) {
+        goBack();
+      }
     } catch (e) {
       console.log("failed to add recipe: ", e.toString());
     }
