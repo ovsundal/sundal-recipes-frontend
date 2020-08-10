@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { AddUpdateRecipe } from "./recipes/AddUpdateRecipe";
 import { RecipeList } from "./recipes/RecipeList";
 import { RecipeItem } from "./recipes/RecipeItem";
+import { Login } from "./recipes/Login";
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ export const AppRoutes: React.FC = () => {
           path={"/update-recipe"}
           children={<AddUpdateRecipe />}
         />
+        <Route exact={true} path={"/login"} children={<Login />} />
       </Switch>
     </BrowserRouter>
   );
