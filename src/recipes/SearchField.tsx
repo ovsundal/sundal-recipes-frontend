@@ -22,7 +22,9 @@ export const SearchField: React.FC<ISearchFieldProps> = ({
     updateRecipes(filteredRecipes);
   }, [searchTerm]);
 
-  const updateSearchField = (e: any) => setSearchTerm(e.target.value);
+  const updateSearchField = (e: React.FormEvent<HTMLInputElement>) => {
+    setSearchTerm(e.currentTarget.value);
+  };
   return (
     <SearchFieldWrapper>
       <label htmlFor={"recipe-search-field"}>
@@ -33,6 +35,11 @@ export const SearchField: React.FC<ISearchFieldProps> = ({
         placeholder={"Søk etter oppskrift"}
         value={searchTerm}
         onChange={updateSearchField}
+        onKeyDown={e => {
+          if (e.key === "Escape") {
+            setSearchTerm("");
+          }
+        }}
       ></input>
     </SearchFieldWrapper>
   );
