@@ -15,9 +15,11 @@ export const SearchField: React.FC<ISearchFieldProps> = ({
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const filteredRecipes = recipeData.filter(({ title }) => {
-      return title.includes(searchTerm);
-    });
+    const regexp = new RegExp(searchTerm, "i");
+
+    const filteredRecipes = recipeData.filter(({ title }) =>
+      regexp.test(title)
+    );
 
     updateRecipes(filteredRecipes);
   }, [searchTerm]);
