@@ -7,9 +7,11 @@ import { Spinner } from "../common/Spinner";
 import { GLOBAL_API } from "../common/constants";
 import { SearchField } from "./SearchField";
 
-interface IRecipeListProps {}
+interface IRecipeListProps {
+  token: string;
+}
 
-export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
+export const RecipeList: React.FC<IRecipeListProps> = ({ token }) => {
   const [recipeData, setAllRecipeData] = useState([] as IRecipe[]);
   const [shownRecipes, setShownRecipes] = useState([] as IRecipe[]);
   const [isLoading, setIsLoading] = useState(false);
@@ -41,6 +43,8 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
   const updateShownRecipes = (updatedRecipes: IRecipe[]) =>
     setShownRecipes(updatedRecipes);
 
+  const fabRedirect = token ? "/add-recipe" : "/login";
+
   return (
     <RecipeListWrapper>
       <SearchField recipeData={recipeData} updateRecipes={updateShownRecipes} />
@@ -55,7 +59,7 @@ export const RecipeList: React.FC<IRecipeListProps> = ({}) => {
         </Link>
       ))}
 
-      <Link to={"/add-recipe"}>
+      <Link to={fabRedirect}>
         <FloatingAddRecipeButton title={"Add Recipe"}>
           <PlusIcon className="fa fa-plus my-float" />
         </FloatingAddRecipeButton>
