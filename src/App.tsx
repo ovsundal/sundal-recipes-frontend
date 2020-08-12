@@ -1,12 +1,23 @@
 import * as React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { AppRoutes } from "./AppRoutes";
+import { useEffect, useState } from "react";
 
 export const App: React.FC = () => {
+  const [token, setToken] = useState({});
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("userData") || "{}");
+
+    if (storedData && storedData.token) {
+      setToken(storedData.token);
+    }
+  }, []);
+
   return (
     <AppWrapper>
       <GlobalStyle />
-      <AppRoutes />
+      <AppRoutes token={token} setToken={setToken} />
     </AppWrapper>
   );
 };
