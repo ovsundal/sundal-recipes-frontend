@@ -15,7 +15,11 @@ export interface IRecipe {
   tags: ITags[];
 }
 
-export const RecipeItem = () => {
+interface IRecipeItem {
+  token: string;
+}
+
+export const RecipeItem: React.FC<IRecipeItem> = ({ token }) => {
   const [recipe, setRecipe] = useState({} as IRecipe);
   const [isLoading, setIsLoading] = useState(false);
   const { recipeId } = useParams();

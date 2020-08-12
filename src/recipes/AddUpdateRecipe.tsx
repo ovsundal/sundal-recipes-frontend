@@ -12,6 +12,10 @@ export interface ITags {
   name: string;
 }
 
+interface IAddUpdateRecipe {
+  token: string;
+}
+
 const newRecipeBoilerPlateText = `
         <p><strong>Ingredienser</strong></p>
         <ul id=new-recipe-ingredients>
@@ -24,7 +28,7 @@ const newRecipeBoilerPlateText = `
         </div>
         `;
 
-export const AddUpdateRecipe: React.FC = () => {
+export const AddUpdateRecipe: React.FC<IAddUpdateRecipe> = ({ token }) => {
   const [recipeId, setRecipeId] = useState("");
   const [recipe, setRecipe] = useState("");
   const [recipeTitle, setRecipeTitle] = useState("");
