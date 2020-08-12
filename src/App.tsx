@@ -4,7 +4,7 @@ import { AppRoutes } from "./AppRoutes";
 import { useEffect, useState } from "react";
 
 export const App: React.FC = () => {
-  const [token, setToken] = useState({});
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("userData") || "{}");

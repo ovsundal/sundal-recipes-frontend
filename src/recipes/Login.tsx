@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 interface ILogin {
   token: {};
-  setToken: React.Dispatch<React.SetStateAction<{}>>;
+  setToken: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const Login: React.FC<ILogin> = ({ token, setToken }) => {
