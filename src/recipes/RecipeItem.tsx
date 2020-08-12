@@ -51,6 +51,8 @@ export const RecipeItem: React.FC<IRecipeItem> = ({ token }) => {
     return <Spinner />;
   }
 
+  const fabRedirect = token ? "/update-recipe" : "/login";
+
   return (
     <AddRecipeWrapper key={id}>
       <h2>{title}</h2>
@@ -58,7 +60,7 @@ export const RecipeItem: React.FC<IRecipeItem> = ({ token }) => {
 
       <Link
         to={{
-          pathname: `/update-recipe/`,
+          pathname: fabRedirect,
           state: { recipe }
         }}
       >
@@ -74,7 +76,5 @@ export const AddRecipeWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-const FloatingUpdateRecipeButton = styled(FloatingAddRecipeButton)``;
 
 const EditIcon = styled(PlusIcon)``;
