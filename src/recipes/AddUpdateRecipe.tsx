@@ -137,21 +137,24 @@ export const AddUpdateRecipe: React.FC<IAddUpdateRecipe> = ({ token }) => {
 
   const renderTags = (tagData: ITags[]) => (
     <TagsDivider>
-      {tagData.map(({ id, name }) => {
-        const isChecked = selectedTags.filter((tag: ITags) => tag.id === id)[0];
+      {tagData &&
+        tagData.map(({ id, name }) => {
+          const isChecked = selectedTags.filter(
+            (tag: ITags) => tag.id === id
+          )[0];
 
-        return (
-          <label key={id}>
-            {name}
-            <input
-              id={id}
-              type={"checkbox"}
-              onChange={handleTagChange}
-              checked={!!isChecked}
-            />
-          </label>
-        );
-      })}
+          return (
+            <label key={id}>
+              {name}
+              <input
+                id={id}
+                type={"checkbox"}
+                onChange={handleTagChange}
+                checked={!!isChecked}
+              />
+            </label>
+          );
+        })}
     </TagsDivider>
   );
 
