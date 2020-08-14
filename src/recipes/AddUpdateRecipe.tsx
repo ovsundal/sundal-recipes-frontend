@@ -39,7 +39,7 @@ export const AddUpdateRecipe: React.FC<IAddUpdateRecipe> = ({ token }) => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const response = await fetch(`${GLOBAL_API}api/tags/getTags`);
+        const response = await fetch(`${GLOBAL_API}tags/getTags`);
 
         const { tags }: { tags: ITags[] } = await response.json();
         const existingTags = [] as ITags[];
