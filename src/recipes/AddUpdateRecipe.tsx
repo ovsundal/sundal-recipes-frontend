@@ -99,7 +99,8 @@ export const AddUpdateRecipe: React.FC<IAddUpdateRecipe> = ({ token }) => {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token
         }
       });
 
