@@ -93,5 +93,6 @@ const LoginWrapper = styled.form`
     width: 80%;
     background-color: #0069d9;
     font-size: 3rem;
+    margin-top: 3rem;
   }
 `;
