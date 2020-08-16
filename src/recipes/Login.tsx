@@ -77,18 +77,16 @@ const LoginWrapper = styled.form`
   align-items: center;
 
   margin-top: 5rem;
-  min-width: 20%;
   font-size: 3rem;
   font-family: monospace;
 
   label {
-    margin-bottom: 2rem;
-    margin-right: 1rem;
+    align-self: center;
   }
 
   input {
-    font-size: 3rem;
-    margin-left: 1rem;
+    font-size: 2.5rem;
+    margin: 0 0 1rem 0;
   }
 
   button {
