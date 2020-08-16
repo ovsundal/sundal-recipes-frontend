@@ -49,7 +49,7 @@ export const Login: React.FC<ILogin> = ({ token, setToken }) => {
 
   return (
     <LoginWrapper onSubmit={submitForm}>
-      Login screen. User is logged in: {token ? "true" : "false"}
+      <h2>Login</h2>
       <label>
         Username
         <input
@@ -74,6 +74,26 @@ export const Login: React.FC<ILogin> = ({ token, setToken }) => {
 const LoginWrapper = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   margin-top: 5rem;
+  min-width: 20%;
+  font-size: 3rem;
+  font-family: monospace;
+
+  label {
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+  }
+
+  input {
+    font-size: 3rem;
+    margin-left: 1rem;
+  }
+
+  button {
+    width: 80%;
+    background-color: #0069d9;
+    font-size: 3rem;
+  }
 `;
