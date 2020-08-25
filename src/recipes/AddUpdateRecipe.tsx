@@ -1,8 +1,7 @@
 import * as React from "react";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import { Editor } from "@tinymce/tinymce-react/lib/es2015/main/ts";
-import { IRecipe } from "./RecipeItem";
 import { GLOBAL_API } from "../common/constants";
 import { useHistory } from "react-router-dom";
 
