@@ -45,6 +45,8 @@ export const RecipeItem: React.FC<IRecipeItem> = ({ token }) => {
   }, [recipeId]);
 
   const { recipe: content, id, title } = recipe;
+
+  // render item directly as HTML, so manually sanitize input
   const sanitizedContent = sanitize(content);
 
   if (isLoading) {
