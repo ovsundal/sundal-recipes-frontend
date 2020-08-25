@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// code from https://projects.lukehaas.me/css-loaders/
 export const Spinner = styled.div`
   position: fixed;
   top: 50%;
