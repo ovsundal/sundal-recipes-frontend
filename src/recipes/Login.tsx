@@ -49,23 +49,23 @@ export const Login: React.FC<ILogin> = ({ token, setToken }) => {
 
   return (
     <LoginWrapper onSubmit={submitForm}>
-      <h2>Login</h2>
-      <label>
+      <h1>Login</h1>
+      <TextBoxWrapper>
         Username
         <input
           type={"text"}
           value={username}
           onChange={v => setUsername(v.target.value)}
         />
-      </label>
-      <label>
+      </TextBoxWrapper>
+      <TextBoxWrapper>
         Password
         <input
           type={"password"}
           value={password}
           onChange={v => setPassword(v.target.value)}
         />
-      </label>
+      </TextBoxWrapper>
       <button type={"submit"}>Login</button>
     </LoginWrapper>
   );
@@ -75,24 +75,26 @@ const LoginWrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   margin-top: 5rem;
-  font-size: 3rem;
   font-family: monospace;
-
-  label {
-    align-self: center;
-  }
-
-  input {
-    font-size: 2.5rem;
-    margin: 0 0 1rem 0;
-  }
 
   button {
     width: 80%;
     background-color: #0069d9;
     font-size: 3rem;
     margin-top: 3rem;
+  }
+`;
+
+const TextBoxWrapper = styled.label`
+  display: flex;
+  justify-content: center;
+
+  font-size: 2.5rem;
+
+  input {
+    font-size: 2.5rem;
+    margin: 0 0 1rem 1rem;
+    width: 60%;
   }
 `;
