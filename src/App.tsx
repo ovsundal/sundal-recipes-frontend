@@ -44,15 +44,15 @@ export const App: React.FC = () => {
 
 const AppWrapper = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   font-size: 18px;
 `;
 
 const GlobalStyle = createGlobalStyle`
     html {
-      font-size: 62.5%;
+      font-size: 62.5%; // 1 rem = 10 px
       font-family: Verdana, Geneva, sans-serif;
       background-color: #ccc;
     }
