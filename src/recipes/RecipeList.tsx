@@ -69,6 +69,10 @@ export const RecipeList: React.FC<IRecipeListProps> = ({ token }) => {
 };
 
 const RecipeListWrapper = styled.ul`
+  display: flex;
+  flex-direction: column;
+  min-width: 35%;
+
   list-style: none;
   padding-left: 0;
   li {

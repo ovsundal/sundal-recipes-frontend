@@ -50,15 +50,11 @@ export const SearchField: React.FC<ISearchFieldProps> = ({
 const SearchFieldWrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
-  border: 1px solid #ccc;
   background-color: white;
-  border-radius: 0.5rem;
   margin-bottom: 2rem;
 
   input {
     flex-grow: 1;
-
     padding: 0.5rem;
     border: 0;
     font-size: 2.5rem;

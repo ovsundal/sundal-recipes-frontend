@@ -55,9 +55,11 @@ const GlobalStyle = createGlobalStyle`
       font-size: 62.5%; // 1 rem = 10 px
       font-family: Verdana, Geneva, sans-serif;
       background-color: #ccc;
+      
     }
     
     body {
       margin: 0;
+      overflow-y: scroll;
     }
 `;
