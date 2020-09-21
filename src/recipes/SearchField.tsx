@@ -30,7 +30,7 @@ export const SearchField: React.FC<ISearchFieldProps> = ({
   return (
     <SearchFieldWrapper>
       <label htmlFor={"recipe-search-field"}>
-        <i className="fa fa-search"/>
+        <i className="fa fa-search" />
       </label>
       <input
         id={"recipe-search-field"}
